@@ -14,7 +14,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={'/products/' + product.id}
-      className="card w-full bg-base-100 hover:shadow-xl transition-shadow"
+      className="card w-full bg-base-100 hover:shadow-xl group relative"
     >
       <figure>
         <Image
@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           alt={product.name}
           width={800}
           height={400}
-          className="h-48 object-cover"
+          className="h-48 object-cover transform transition-transform origin-center group-hover:scale-110 group-active:scale-110"
         />
       </figure>
       <div className="card-body">
