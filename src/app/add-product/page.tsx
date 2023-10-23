@@ -53,7 +53,7 @@ const AddProductPage = () => {
           className="input-bordered input mb-3 w-full"
           required
         />
-        <FormSubmitButton className=" btn-block">Add Product</FormSubmitButton>
+        <FormSubmitButton className=" btn-block">Add Product </FormSubmitButton>
       </form>
     </div>
   );
