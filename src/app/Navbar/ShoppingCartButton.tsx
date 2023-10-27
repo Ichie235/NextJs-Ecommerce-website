@@ -47,7 +47,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonprops) {
           </span>
           <div className="card-actions">
             <Link
-              href="/cart"
+              href="/Cart"
               className="btn btn-primary btn-block"
               onClick={closeDropdown}
             >
