@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
 const inter = Inter({ subsets: ['latin'] });
+import  SessionProvider from './SessionProvider';
 
 export const metadata: Metadata = {
   title: 'Choice-Mega',
@@ -18,9 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="p-4 max-w-7xl mx-auto min-w-[300px]">{children}</main>
-        <Footer/>
+        <SessionProvider>
+          <Navbar />
+          <main className="p-4 max-w-7xl mx-auto min-w-[300px]">
+            {children}
+          </main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
