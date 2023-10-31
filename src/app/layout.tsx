@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
 const inter = Inter({ subsets: ['latin'] });
+//necessary to get user info for 'user client' b/c SessionProvider doesnt work for 'user server'
 import  SessionProvider from './SessionProvider';
 
 export const metadata: Metadata = {
