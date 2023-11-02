@@ -3,6 +3,7 @@
 import { Session } from 'next-auth';
 import Image from 'next/image';
 import profilePicPlacholder from '@/app/assets/profile-pic-placeholder.png';
+import { signIn, signOut } from 'next-auth/react';
 
 interface UserMenuButtonProps {
   session: Session | null;
@@ -34,8 +35,20 @@ export default function UserMenuButton({ session }: UserMenuButtonProps) {
           </svg>
         )}
       </label>
-      <ul>
-        
+      <ul
+        tabIndex={0}
+        className="dropdown-content menu rounded-box menu-sm z-30 w-52 bg-orange-400 p-2 shadow "
+      >
+        <li>
+          {user ? (
+            <button onClick={() => signOut({ callbackUrl: '/' })}>
+              {' '}
+              Sign Out
+            </button>
+          ) : (
+            <button onClick={() => signIn()}>Sign In </button>
+          )}
+        </li>
       </ul>
     </div>
   );
