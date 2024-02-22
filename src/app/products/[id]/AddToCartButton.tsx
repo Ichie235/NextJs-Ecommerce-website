@@ -16,18 +16,25 @@ export default function AddToCartButton({
   const [success, setSuccess] = useState(false);
   return (
     <div className="flex items-center gap-2">
-      <button className="btn btn-primary" onClick={() => {
-        setSuccess(false)
-        startTransition(async()=> {
-          await incrementProductQuantity(productId)
-          setSuccess(true)
-        })
-      }}>
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          setSuccess(false);
+          startTransition(async () => {
+            await incrementProductQuantity(productId);
+            setSuccess(true);
+          });
+        }}
+      >
         {' '}
         Add to Cart
       </button>
-      {isPending && <span className='loading loading-spinner loading-md'></span>}
-      {!isPending && success && <span className='text-warning'>Added to Cart</span>}
+      {isPending && (
+        <span className="loading loading-spinner loading-md"></span>
+      )}
+      {!isPending && success && (
+        <span className="text-warning">Added to Cart</span>
+      )}
     </div>
   );
 }

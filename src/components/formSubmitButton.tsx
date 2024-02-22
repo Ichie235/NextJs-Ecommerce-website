@@ -4,8 +4,6 @@ import { ComponentProps } from 'react';
 // import {experimental_useFormStatus as useFormStatus } from 'react-dom';
 import { useFormContext } from 'react-hook-form';
 
-
-
 type FormSubmitButtonProps = {
   children: React.ReactNode;
   className?: string;
@@ -17,18 +15,20 @@ export default function FormSubmitButton({
   style,
   ...props
 }: FormSubmitButtonProps) {
-  const { formState: { isSubmitting } } = useFormContext();
+  const {
+    formState: { isSubmitting },
+  } = useFormContext();
 
   return (
-    <button 
+    <button
       {...props}
       className={`btn btn-primary ${className}`}
       style={style}
       type="submit"
       disabled={isSubmitting}
     >
-     {isSubmitting && <span className='loading loading-spinner'></span>}
-     {children}
+      {isSubmitting && <span className="loading loading-spinner"></span>}
+      {children}
     </button>
   );
 }
