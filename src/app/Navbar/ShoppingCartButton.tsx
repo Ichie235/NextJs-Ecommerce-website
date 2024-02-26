@@ -11,7 +11,7 @@ export default function ShoppingCartButton({ cart }: ShoppingCartButtonprops) {
     const element = document.activeElement as HTMLElement;
     if (element) {
       element.blur();
-    } 
+    }
   }
   return (
     <div className="dropdown dropdown-end">

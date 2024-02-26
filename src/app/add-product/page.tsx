@@ -4,6 +4,7 @@ import FormSubmitButton from '../../components/formSubmitButton';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 
+
 export const metadata = {
   title: 'Add Product - Choice-Mega',
 };
@@ -11,11 +12,11 @@ export const metadata = {
 /*this is a server endpoint to make request from without having to set-up an api 
 endpoint and converting the current work file to "user client" */
 async function addProduct(formData: FormData) {
+  'use server'
   const session = await getServerSession(authOptions);
   if (!session) {
     redirect('/api/auth/signin?callbackUrl=/add-product');
   }
-  ('use server');
   const name = formData.get('name')?.toString();
   const description = formData.get('description')?.toString();
   const imageUrl = formData.get('imageUrl')?.toString();
